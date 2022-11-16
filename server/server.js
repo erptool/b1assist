@@ -20,7 +20,7 @@ const knowPosts = new Schema({
 const MyModel = mongoose.model('KnowPost', knowPosts);
 
 const hostname = 'localhost';
-const port = 3000;
+const port = 5000;
 
 const server = http.createServer(function(req, res) {
   res.statusCode = 200;
