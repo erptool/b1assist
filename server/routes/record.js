@@ -13,7 +13,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 //Root GET
 recordRoutes.route("/").get(function (req, res) {
-    res.end('Hello World\n');
+    res.end('Dario Test');
    }); 
 
 

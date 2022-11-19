@@ -5,7 +5,6 @@ const Record = (props) => (
  <tr>
    <td>{props.record.title}</td>
    <td>{props.record.content}</td>
-   <td>{props.record.level}</td>
    <td>
      <Link to={`/edit/${props.record._id}`}>Edit</Link> |
      <button onClick={() => {

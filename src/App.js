@@ -1,25 +1,37 @@
 import React from "react";
 // We use Route in order to define the different routes of our application
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
 import './App.css';
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
-import Navbar from "./components/navbar";
+
 
 //import KnowAdd from './components/KnowAdd';
 
 const App = () => {
   return (
-    <div>
-    <h1>This is a render test</h1>
-      <Navbar /> 
-      {/*<Routes>
-        <Route exact path="/" element={<RecordList />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/create" element={<Create />} />
-      </Routes> */}
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"><RecordList /></Link>
+            </li>
+            <li>
+              <Link to="/"><Edit /></Link>
+            </li>
+            <li>
+              <Link to="/record/add">Add New</Link>
+            </li>
+          </ul>
+        </nav>  
+        <Routes>
+          <Route exact path="/record/add" element= {<Create/>} >
+          </Route>
+        </Routes> 
+      </div>
+    </Router>   
   );
  };
   
