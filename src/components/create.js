@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+
  
 export default function Create() {
  const [form, setForm] = useState({
    title: "",
-   content: ""
+   content: "",
+   file: ""
  });
 
  const navigate = useNavigate();
@@ -35,42 +37,58 @@ export default function Create() {
      return;
    });
  
-   setForm({ title: "", content: ""});
+   setForm({ title: "", content: "", file: ""});
    navigate("/");
  }
  
  // This following section will display the form that takes the input from the user.
  return (
    <div className='container mb-3'>
-     <h3>Create New Record</h3>
+     <h3>Create Note</h3>
      <form onSubmit={onSubmit}>
        <div className="mb-3">
-         <label className="form-label" htmlFor="title">title</label>
+         <label className="form-label" htmlFor="title">Title</label>
          <input
            className='form-control'
            type="text"
            id="title"
            value={form.title}
            onChange={(e) => updateForm({ title: e.target.value })}
+           required
          />
        </div>
        <div>
-         <label className="form-label" htmlFor="content">content</label>
-         <input
+         <label className="form-label" htmlFor="content">Content</label>
+         <textarea
+           rows='10'
            className='form-control'
            type="text"
            id="content"
            value={form.content}
            onChange={(e) => updateForm({ content: e.target.value })}
+           required
          />
        </div>
        <div>
+         <label className="form-label" htmlFor="file">Attach File(s)</label>
+         <input
+           className='form-control'
+           type="file"
+           id="file"
+           value=""
+           onChange={(e) => updateForm({ file: e.target.files})}
+           multiple
+         />
+       </div>
+       <div>
+        <br></br>
          <input
            className='btn btn-primary' 
            type="submit"
            value="Create note"
          />
        </div>
+       
      </form>
    </div>
  );

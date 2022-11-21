@@ -1,13 +1,7 @@
 import React from "react";
-// We use Route in order to define the different routes of our application
 import { BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
-import './App.css';
 import RecordList from "./components/recordList";
-import Edit from "./components/edit";
 import Create from "./components/create";
-
-
-//import KnowAdd from './components/KnowAdd';
 
 const App = () => {
   return (
@@ -16,10 +10,7 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link className="App-link" to="/record/view">View</Link>
-            </li>
-            <li>
-              <Link to="/record/edit">Edit</Link>
+              <Link to="/record/view">View</Link>
             </li>
             <li>
               <Link to="/record/add">Add New</Link>
@@ -28,8 +19,6 @@ const App = () => {
         </nav>  
         <Routes>
           <Route exact path="/record/add" element= {<Create/>} >
-          </Route>
-          <Route exact path="/record/edit" element= {<Edit />} >
           </Route>
           <Route exact path="/record/view" element= {<RecordList />} >
           </Route>

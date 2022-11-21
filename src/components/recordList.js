@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
  
 const Record = (props) => (
  <tr>
    <td>{props.record.title}</td>
    <td>{props.record.content}</td>
+   {/* <td>{props.record.file}</td> */}
    <td>
-     <Link to={`/edit/${props.record._id}`}>Edit</Link> |
      <button onClick={() => {
          props.deleteRecord(props.record._id);
        }}
@@ -65,15 +65,15 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div>
+   <div className='container mb-3'>
      <h3>Record List</h3>
-     <table classtitle="table table-striped" style={{ marginTop: 20 }}>
+     <table className='table table-striped'>
        <thead>
          <tr>
-           <th>title</th>
-           <th>content</th>
-           <th>Level</th>
-           <th>Action</th>
+           <th scope='col'>Title</th>
+           <th scope="col">Content</th>
+           <th scope="col">Attachments</th>
+           <th scope="col">Delete</th>
          </tr>
        </thead>
        <tbody>{recordList()}</tbody>
