@@ -16,10 +16,10 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/"><RecordList /></Link>
+              <Link className="App-link" to="/record/view">View</Link>
             </li>
             <li>
-              <Link to="/"><Edit /></Link>
+              <Link to="/record/edit">Edit</Link>
             </li>
             <li>
               <Link to="/record/add">Add New</Link>
@@ -29,6 +29,10 @@ const App = () => {
         <Routes>
           <Route exact path="/record/add" element= {<Create/>} >
           </Route>
+          <Route exact path="/record/edit" element= {<Edit />} >
+          </Route>
+          <Route exact path="/record/view" element= {<RecordList />} >
+          </Route>
         </Routes> 
       </div>
     </Router>   
@@ -36,18 +40,4 @@ const App = () => {
  };
   
  export default App;
-/*function App() {
-  return (
-    <div >
-      <header className="App-header">
-        <h3>
-          Knowledge Base
-        </h3>
-      </header>
-      <KnowAdd />
-      {/*  *//*}
-</div>
-  );
-}*/
-
  
