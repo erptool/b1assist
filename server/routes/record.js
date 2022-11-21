@@ -45,9 +45,8 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 recordRoutes.route("/record/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   name: req.body.name,
-   position: req.body.position,
-   level: req.body.level,
+   title: req.body.title,
+   content: req.body.content
  };
  db_connect.collection("KNOW").insertOne(myobj, function (err, res) {
    if (err) throw err;
